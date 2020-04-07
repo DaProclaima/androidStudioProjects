@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">quotesProject</string>
+    <array name="initial_quotes">
+        <item>I don't know</item>
+        <item>Who remembers ?</item>
+        <item>Go catch them all !</item>
+    </array>
+</resources>

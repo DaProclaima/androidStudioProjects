@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">Celcius To Faranheit</string>
-    <string name="temp_input_str">Type temperature in ºC</string>
-    <string name="temp_bt_str">Convert in ºF</string>
-    <string name="temp_result_str">gives</string>
-</resources>
