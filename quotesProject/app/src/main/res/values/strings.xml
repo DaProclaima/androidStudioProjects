@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">quotesProject</string>
-    <array name="initial_quotes">
-        <item>I don't know</item>
+    <string name="app_name">Geek Quotes Project</string>
+    <string name="str_main_title">Geek quotes coming !</string>
+    <string-array name="initial_quotes">
+        <item>I don\'t know</item>
         <item>Who remembers ?</item>
         <item>Go catch them all !</item>
-    </array>
+    </string-array>
 </resources>

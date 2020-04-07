@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = MainActivity.class.getSimpleName();;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,13 +23,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
         Log.d(TAG, initialQuotes.toString());
-    }
 
+    }
 
     void addQuote(String strQuote) {
         Quote quote = new Quote(strQuote);
-        add.(quote);
-
-        Toast.makeText(this, StrQuote, Toast.LENGTH_SHORT).show();
+        TextView tv_main_str = findViewById(R.id.tv_main_str);
+        tv_main_str.setText(strQuote);
+//        Toast.makeText(this, strQuote, Toast.LENGTH_SHORT).show();
     }
 }

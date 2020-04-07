@@ -1,5 +1,7 @@
 package fr.mds.activity.quotesproject;
 
+import android.content.res.Resources;
+
 import java.util.Date;
 
 public class Quote {
@@ -29,7 +31,4 @@ public class Quote {
         this.rating = rating;
     }
 
-    public void add (String quote) {
-        
-    }
 }
