@@ -2,26 +2,60 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
-
-    <Button
-        android:id="@+id/bt_main_1"
-        android:layout_width="wrap_content"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Button1" />
+        android:padding="16dp">
+        <Button
+            android:id="@+id/bt_main_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Button1" />
 
-    <Button
-        android:id="@+id/bt_main_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Button2" />
+        <Button
+            android:id="@+id/bt_main_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Button2" />
 
-    <Button
-        android:id="@+id/bt_main_3"
-        android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/bt_main_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Button3" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Button3" />
+        android:layout_marginTop="32dp"
+        android:textSize="24sp"
+        android:layout_marginBottom="8dp"
+        android:text="Basic Adapter" />
+
+    <Spinner
+        android:id="@+id/sp_main_select"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginHorizontal="16sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:textSize="24sp"
+            android:layout_marginBottom="8dp"
+            android:text="Customed Adapter" />
+
+    <Spinner
+        android:id="@+id/sp_main_custom_select"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginHorizontal="16sp"/>
 </LinearLayout>

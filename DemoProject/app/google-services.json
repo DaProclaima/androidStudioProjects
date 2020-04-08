@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "217197529915",
+    "firebase_url": "https://sebastiendemoproject.firebaseio.com",
+    "project_id": "sebastiendemoproject",
+    "storage_bucket": "sebastiendemoproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:217197529915:android:e41d0d9679db2d53ebc51e",
+        "android_client_info": {
+          "package_name": "fr.mds.demoproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "217197529915-2ofvr23s3i5p66pbtq1hrctgu0grvhi1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDa5qifaXGGZoe28nwccRIJducvjiFa3o0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "217197529915-2ofvr23s3i5p66pbtq1hrctgu0grvhi1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
