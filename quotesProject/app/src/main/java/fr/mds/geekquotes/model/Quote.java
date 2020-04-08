@@ -1,6 +1,4 @@
-package fr.mds.activity.quotesproject;
-
-import android.content.res.Resources;
+package fr.mds.geekquotes.model;
 
 import java.util.Date;
 

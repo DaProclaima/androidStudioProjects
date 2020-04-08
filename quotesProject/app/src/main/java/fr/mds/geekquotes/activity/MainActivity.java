@@ -1,15 +1,16 @@
-package fr.mds.activity.quotesproject;
+package fr.mds.geekquotes.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import fr.mds.geekquotes.model.Quote;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -41,12 +42,12 @@ public class MainActivity extends AppCompatActivity {
 
 //        TextView tv_main_str = findViewById(R.id.tv_main_str);
 //        tv_main_str.setText(strQuote);
-        TextView textView = new TextView(this);
-        textView.setText(strQuote);
-        ll_main_layout.findViewById(R.id.ll_main_layout);
-
+//        TextView textView = new TextView(this);
+//        textView.setText(strQuote);
+//        ll_main_layout = findViewById(R.id.ll_main_layout);
+//
 //        if (quotes.size() % 2 != 0 ) {
-//            ll_main_layout.setBackgroundColor(android);
+//            tv_main_str.setBackgroundColor(R.style.AppTheme);
 //        }
     }
 }
