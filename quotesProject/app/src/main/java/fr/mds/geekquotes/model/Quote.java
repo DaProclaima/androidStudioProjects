@@ -29,4 +29,8 @@ public class Quote {
         this.rating = rating;
     }
 
+    @Override
+    public String toString() {
+        return strQuote;
+    }
 }

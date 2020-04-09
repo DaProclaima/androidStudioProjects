@@ -13,7 +13,7 @@
         android:padding="16dp">
 
         <EditText
-            android:id="@+id/et_main_str"
+            android:id="@+id/et_main_strquote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -21,7 +21,7 @@
             />
 
         <Button
-            android:id="@+id/bt_main_str"
+            android:id="@+id/bt_main_add"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/bt_main_title"
@@ -35,7 +35,7 @@
         android:padding="16dp">
 
         <TextView
-            android:id="@+id/tv_main_str"
+            android:id="@+id/tv_main_quote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
@@ -45,7 +45,7 @@
         <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/lv_quote"
+            android:id="@+id/lv_main_quotes"
             />
     </LinearLayout>
 
