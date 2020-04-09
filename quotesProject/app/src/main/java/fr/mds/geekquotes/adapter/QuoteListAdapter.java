@@ -34,7 +34,7 @@ public class QuoteListAdapter extends ArrayAdapter<Quote> {
         TextView tv_item_quote_date = convertView.findViewById(R.id.tv_item_quote_date);
 
         tv_item_quote_strquote.setText(quote.getStrQuote());
-        tv_item_quote_date.setText(DateFormat.getDateTimeInstance(quote.getCreatingDate()));
+        tv_item_quote_date.setText(DateFormat.getDateTimeInstance().format(quote.getCreatingDate()));
 
         return convertView;
     }

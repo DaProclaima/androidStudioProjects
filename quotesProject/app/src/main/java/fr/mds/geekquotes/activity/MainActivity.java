@@ -41,11 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bt_main_add.setOnClickListener(this);
 
 
-//        quoteArrayAdapter = new ArrayAdapter<>(
-//                this,
-//                android.R.layout.simple_list_item_1,
-//                quotes
-//        );
+        quoteArrayAdapter = new QuoteListAdapter(this,quotes);
 
         lv_main_quotes.setAdapter(quoteArrayAdapter);
 
@@ -78,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         String inputStr = et_main_quote.getText().toString();
         addQuote(inputStr);
+        et_main_quote.setText(null);
     }
 
 
