@@ -11,15 +11,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.text.DateFormat;
-import java.util.Date;
 import java.util.List;
 
 import fr.mds.geekquotes.activity.R;
 import fr.mds.geekquotes.model.Quote;
 
 public class QuoteListAdapter extends ArrayAdapter<Quote> {
+    private Context context;
     public QuoteListAdapter(@NonNull Context context, @NonNull List<Quote> objects) {
         super(context, 0, objects);
+        this.context = context;
     }
 
     @NonNull
@@ -27,7 +28,7 @@ public class QuoteListAdapter extends ArrayAdapter<Quote> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         Quote quote = getItem(position);
         if ( convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_quote, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_quotes, parent, false);
         }
 
         TextView tv_item_quote_strquote = convertView.findViewById(R.id.tv_item_quote_strquote);
@@ -38,4 +39,5 @@ public class QuoteListAdapter extends ArrayAdapter<Quote> {
 
         return convertView;
     }
+
 }

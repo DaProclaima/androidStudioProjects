@@ -43,9 +43,9 @@
             android:text="@string/str_main_title" />
 
         <ListView
+            android:id="@+id/lv_main_quotes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/lv_main_quotes"
             />
     </LinearLayout>
 
