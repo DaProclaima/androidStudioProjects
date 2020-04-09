@@ -2,6 +2,7 @@ package fr.mds.demoproject.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,12 +11,13 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+
 import fr.mds.demoproject.model.Virus;
 
 public class MenuActivity extends Activity implements View.OnClickListener {
 
     private static String TAG = "MenuActivity";
-    private Button bt_menu_spinner, bt_menu_picasso, bt_menu_demo_extra;
+    private Button bt_menu_spinner, bt_menu_picasso, bt_menu_demo_extra, bt_menu_open_url;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,10 +27,12 @@ public class MenuActivity extends Activity implements View.OnClickListener {
         bt_menu_spinner = findViewById(R.id.bt_menu_spinner);
         bt_menu_picasso = findViewById(R.id.bt_menu_picasso);
         bt_menu_demo_extra = findViewById(R.id.bt_menu_demo_extra);
+        bt_menu_open_url= findViewById(R.id.bt_menu_open_url);
 
         bt_menu_spinner.setOnClickListener(this);
         bt_menu_picasso.setOnClickListener(this);
         bt_menu_demo_extra.setOnClickListener(this);
+        bt_menu_open_url.setOnClickListener(this);
 
 
     }
@@ -60,6 +64,13 @@ public class MenuActivity extends Activity implements View.OnClickListener {
             intent.putExtra("virus", virus);
             startActivity(intent);
             return;
+        }
+
+        if ( v == bt_menu_open_url) {
+            Log.d(TAG, "MenuActivity - OnClick - bt_menu_open_url");
+            Uri uri = Uri.parse ("https://mydigitalschool.com/");
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
         }
     }
 

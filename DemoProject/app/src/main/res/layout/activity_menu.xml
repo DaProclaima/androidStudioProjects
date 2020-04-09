@@ -18,9 +18,15 @@
         android:text="demo picasso"/>
 
     <Button
-        android:id="@+id/bt_menu_demo_extra"
+    android:id="@+id/bt_menu_demo_extra"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="demo extra"/>
+
+    <Button
+        android:id="@+id/bt_menu_open_url"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="demo extra"/>
+        android:text="Open URL"/>
 
 </LinearLayout>
