@@ -31,10 +31,10 @@ public class QuoteListAdapter extends ArrayAdapter<Quote> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_quotes, parent, false);
         }
 
-        TextView tv_item_quote_strquote = convertView.findViewById(R.id.tv_item_quote_strquote);
+        TextView tv_item_quote_strQuote = convertView.findViewById(R.id.tv_item_quote_str_quote);
         TextView tv_item_quote_date = convertView.findViewById(R.id.tv_item_quote_date);
 
-        tv_item_quote_strquote.setText(quote.getStrQuote());
+        tv_item_quote_strQuote.setText(quote.getStrQuote());
         tv_item_quote_date.setText(DateFormat.getDateTimeInstance().format(quote.getCreatingDate()));
 
         return convertView;
