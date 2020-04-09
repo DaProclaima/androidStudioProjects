@@ -29,10 +29,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button bt_main_add;
     private ListView lv_main_quotes;
     private QuoteListAdapter quoteArrayAdapter;
+    private Bundle extras;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if (extras != null) {
+            for (Quote q : this.quotes) {
+                if (q.getStrQuote() == extras.get("quoteStr")) {
+                    q.setRating((int) extras.get("quoteRating"));
+
+                }
+            }
+            extras.clear();
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
