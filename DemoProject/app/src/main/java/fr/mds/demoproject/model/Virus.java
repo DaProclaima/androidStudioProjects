@@ -1,6 +1,8 @@
 package fr.mds.demoproject.model;
 
-public class Virus {
+import java.io.Serializable;
+
+public class Virus implements Serializable {
 
     private String name;
     private String countryName;
@@ -44,4 +46,5 @@ public class Virus {
     public String toString() {
         return name;
     }
+
 }
