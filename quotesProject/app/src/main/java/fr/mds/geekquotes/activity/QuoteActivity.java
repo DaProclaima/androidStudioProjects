@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.RatingBar;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
@@ -16,9 +18,19 @@ public class QuoteActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.quote_layout);
         extras = getIntent().getExtras();
+
+
+        RatingBar rb_quote = findViewById(R.id.rb_quote_layout);
+        TextView tv_quote_layout_quotedate = findViewById(R.id.tv_quote_layout_quotedate);
+        TextView tv_quote_layout_quotestr = findViewById(R.id.tv_quote_layout_quotestr);
+
         Log.d(TAG, "QuoteActivity - quoteStr - " + extras.getString("quoteStr"));
         Log.d(TAG, "QuoteActivity - quoteDate - " + extras.getString("quoteDate"));
         Log.d(TAG, "QuoteActivity - quoteRating - " + extras.getInt("quoteRating"));
+
+        tv_quote_layout_quotedate.setText(extras.getString("quoteDate"));
+        tv_quote_layout_quotestr.setText(extras.getString("quoteStr"));
+        rb_quote.setRating(extras.getInt("quoteRating"));
     }
 
 //    @Override

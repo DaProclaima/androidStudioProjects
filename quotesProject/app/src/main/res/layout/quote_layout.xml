@@ -2,37 +2,81 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="10dp">
 
-    <TextView
-        android:id="@+id/tv_main_quote"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp"
-        android:textSize="20sp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0">
+
+        <TextView
+            android:id="@+id/tv_quote_layout_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:padding="16dp"
+            android:text="@string/str_quote_layout_title"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Some text to check the call" />
-    <RatingBar
-        android:layout_width="match_parent"
-        android:layout_height="150dp"/>
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_quote_layout_quotestr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:text="My quote"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_quote_layout_quotedate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingRight="30dp"
+            android:text="date"
+            android:textAlignment="textEnd"
+            android:textSize="14sp"
+            android:textStyle="italic" />
+
+        <RatingBar
+            android:id="@+id/rb_quote_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:numStars="5"
+            android:stepSize="0.5" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="40dp"
-        >
+        android:gravity="bottom"
+        android:layout_weight="0">
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@android:string/cancel"
-            android:layout_weight="2"/>
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:text="@android:string/cancel" />
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@android:string/ok"
-            android:layout_weight="2"/>
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:text="@android:string/ok" />
     </LinearLayout>
 
 </LinearLayout>
