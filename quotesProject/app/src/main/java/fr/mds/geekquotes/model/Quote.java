@@ -29,6 +29,10 @@ public class Quote {
         this.rating = rating;
     }
 
+    public Date getCreatingDate() {
+        return creatingDate;
+    }
+
     @Override
     public String toString() {
         return strQuote;

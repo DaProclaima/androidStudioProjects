@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import fr.mds.geekquotes.adapter.QuoteListAdapter;
 import fr.mds.geekquotes.model.Quote;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button bt_main_add;
     private ListView lv_main_quotes;
 
-    private ArrayAdapter quoteArrayAdapter;
+    private QuoteListAdapter quoteArrayAdapter;
 
 
     @Override
@@ -40,11 +41,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bt_main_add.setOnClickListener(this);
 
 
-        quoteArrayAdapter = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_list_item_1,
-                quotes
-        );
+//        quoteArrayAdapter = new ArrayAdapter<>(
+//                this,
+//                android.R.layout.simple_list_item_1,
+//                quotes
+//        );
 
         lv_main_quotes.setAdapter(quoteArrayAdapter);
 
