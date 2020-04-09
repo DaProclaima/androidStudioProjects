@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ll_main_layout = findViewById(R.id.ll_main_layout);
+
         String[] initialQuotes = getResources().getStringArray(R.array.initial_quotes);
 
         for(String s : initialQuotes) {
@@ -42,14 +44,13 @@ public class MainActivity extends AppCompatActivity {
         Quote quote = new Quote(strQuote);
         quotes.add(quote);
 
-//        Toast.makeText(this, strQuote, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, strQuote, Toast.LENGTH_SHORT).show();
 
-        ListView listView = (ListView) findViewById(R.layout.lv_quote);
-
+        TextView textView = new TextView(this);
+        textView.setText(strQuote);
         ArrayAdapter<Quote> quoteArrayAdapter  = new ArrayAdapter<Quote>(this, android.R.layout.simple_list_item_1 , quotes);
-        listView.setAdapter(quoteArrayAdapter);
         if (quotes.size() % 2 != 0 ) {
-            listView.setBackgroundColor(R.style.AppTheme);
+            textView.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
         }
     }
 }
