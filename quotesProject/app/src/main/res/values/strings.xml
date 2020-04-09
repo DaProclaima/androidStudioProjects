@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Geek Quotes Project</string>
-    <string name="str_main_title">Geek quotes coming !</string>
+    <string name="str_main_title">List of Geek quotes</string>
+    <string name="bt_main_title">Add quote</string>
+    <string name="str_main_hint">Write a geek quote</string>
     <string-array name="initial_quotes">
         <item>I don\'t know</item>
         <item>Who remembers ?</item>

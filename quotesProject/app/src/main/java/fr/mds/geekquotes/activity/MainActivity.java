@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import fr.mds.geekquotes.model.Quote;
 
@@ -32,22 +35,21 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d(TAG, initialQuotes.toString());
 
+
     }
 
     void addQuote(String strQuote) {
         Quote quote = new Quote(strQuote);
         quotes.add(quote);
 
-        Toast.makeText(this, strQuote, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, strQuote, Toast.LENGTH_SHORT).show();
 
-//        TextView tv_main_str = findViewById(R.id.tv_main_str);
-//        tv_main_str.setText(strQuote);
-//        TextView textView = new TextView(this);
-//        textView.setText(strQuote);
-//        ll_main_layout = findViewById(R.id.ll_main_layout);
-//
-//        if (quotes.size() % 2 != 0 ) {
-//            tv_main_str.setBackgroundColor(R.style.AppTheme);
-//        }
+        ListView listView = (ListView) findViewById(R.layout.lv_quote);
+
+        ArrayAdapter<Quote> quoteArrayAdapter  = new ArrayAdapter<Quote>(this, android.R.layout.simple_list_item_1 , quotes);
+        listView.setAdapter(quoteArrayAdapter);
+        if (quotes.size() % 2 != 0 ) {
+            listView.setBackgroundColor(R.style.AppTheme);
+        }
     }
 }
