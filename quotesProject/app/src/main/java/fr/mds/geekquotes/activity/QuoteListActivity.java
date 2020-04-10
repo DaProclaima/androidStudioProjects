@@ -1,10 +1,13 @@
 package fr.mds.geekquotes.activity;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,6 +22,7 @@ import fr.mds.geekquotes.adapter.QuoteListAdapter;
 import fr.mds.geekquotes.model.Quote;
 
 public class QuoteListActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
+    private static final int ACTIVITY_CODE = 1;
     private static final String TAG = QuoteListActivity.class.getSimpleName();
 
     private ArrayList<Quote> quotes = new ArrayList<>();
@@ -27,8 +31,6 @@ public class QuoteListActivity extends AppCompatActivity implements View.OnClick
     private Button bt_main_add;
     private ListView lv_main_quotes;
     private QuoteListAdapter quoteArrayAdapter;
-    private Bundle extras;
-    private final int ACTIVITY_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +102,22 @@ public class QuoteListActivity extends AppCompatActivity implements View.OnClick
            quotes.get(position).setRating((int) rating);
         }
     }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        Log.d(TAG, "QuoteListActivity - onSaveInstanceState- quotes = " + quotes);
+        outState.putParcelableArrayList("quotes", quotes);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        this.quotes = savedInstanceState.getParcelableArrayList("quotes");
+        Log.d(TAG, "QuoteListActivity - onRestoreInstanceState - quotes = " + this.quotes);
+    }
+
+
 }
 
 
