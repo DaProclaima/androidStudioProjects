@@ -1,5 +1,6 @@
 package fr.mds.geekquotes.activity;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,18 +11,15 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import org.json.JSONObject;
-
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 
 import fr.mds.geekquotes.adapter.QuoteListAdapter;
 import fr.mds.geekquotes.model.Quote;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener{
-    private static final String TAG = MainActivity.class.getSimpleName();
+public class QuoteListActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
+    private static final String TAG = QuoteListActivity.class.getSimpleName();
 
     private ArrayList<Quote> quotes = new ArrayList<>();
 
@@ -31,18 +29,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private QuoteListAdapter quoteArrayAdapter;
     private Bundle extras;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if (extras != null) {
-            for (Quote q : this.quotes) {
-                if (q.getStrQuote() == extras.get("quoteStr")) {
-                    q.setRating((int) extras.get("quoteRating"));
 
-                }
-            }
-            extras.clear();
-        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -61,17 +50,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         for(String s : initialQuotes) {
             addQuote(s);
         }
-
     }
 
     void addQuote(String strQuote) {
         Quote quote = new Quote(strQuote);
-
         quotes.add(0, quote);
-
 //        UPDATE LIST
         quoteArrayAdapter.notifyDataSetChanged();
-
 //        Toast.makeText(this, strQuote, Toast.LENGTH_SHORT).show();
     }
 
@@ -80,28 +65,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if( v == bt_main_add) {
             String inputStr = et_main_quote.getText().toString();
             addQuote(inputStr);
-            et_main_quote.setText(null);
+            et_main_quote.getText().clear();
         }
-
-
     }
-
-
-
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        
         if( parent == lv_main_quotes) {
 
-            String quoteStr = quotes.get(position).getStrQuote();
-            String quoteDate = quotes.get(position).getCreatingDate().toString();
-            int quoteRating = quotes.get(position).getRating();
+           Quote quote = quotes.get(position);
 
             Intent intent = new Intent(this, QuoteActivity.class);
-            intent.putExtra("quoteStr",quoteStr);
-            intent.putExtra("quoteDate",quoteDate);
-            intent.putExtra("quoteRating",quoteRating);
+            intent.putExtra("quote", quote);
             startActivity(intent);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+       if(requestCode == 0 && resultCode == 1 && data != null) {
+            int position =  data.getIntExtra("position", 0);
+            float rating = data.getFloatExtra("rating", 00);
+            quotes.get(position).setRating((int) rating);
         }
     }
 }

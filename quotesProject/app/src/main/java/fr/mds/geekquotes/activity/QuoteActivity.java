@@ -3,7 +3,6 @@ package fr.mds.geekquotes.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RatingBar;
@@ -11,17 +10,18 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import fr.mds.geekquotes.model.Quote;
+
 public class QuoteActivity extends Activity implements View.OnClickListener {
     private static final String TAG = QuoteActivity.class.getSimpleName();
     private Button bt_quote_cancel, bt_quote_ok;
     private RatingBar rb_quote;
-    private Bundle extrasInit;
+    private Quote quote;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.quote_layout);
-
-        extrasInit = getIntent().getExtras();
 
         rb_quote = findViewById(R.id.rb_quote_layout);
         TextView tv_quote_layout_quotedate = findViewById(R.id.tv_quote_layout_quotedate);
@@ -33,30 +33,28 @@ public class QuoteActivity extends Activity implements View.OnClickListener {
         bt_quote_cancel.setOnClickListener(this);
         bt_quote_ok.setOnClickListener(this);
 
-//        Log.d(TAG, "QuoteActivity - quoteStr - " + extras.getString("quoteStr"));
-//        Log.d(TAG, "QuoteActivity - quoteDate - " + extras.getString("quoteDate"));
-//        Log.d(TAG, "QuoteActivity - quoteRating - " + extras.getInt("quoteRating"));
-
-        tv_quote_layout_quotedate.setText(extrasInit.getString("quoteDate"));
-        tv_quote_layout_quotestr.setText(extrasInit.getString("quoteStr"));
-        rb_quote.setRating(extrasInit.getInt("quoteRating"));
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null) {
+            quote = (Quote) bundle.getSerializable("quote");
+            tv_quote_layout_quotedate.setText(quote.getCreatingDate().toString());
+            tv_quote_layout_quotestr.setText(quote.getStrQuote());
+            rb_quote.setRating(quote.getRating());
+        }
     }
 
     @Override
     public void onClick(View v) {
 
         if(v == bt_quote_cancel) {
-            Intent intent = new Intent(this, MainActivity.class);
-            intent.putExtra("quoteRating", rb_quote.getRating());
-            intent.putExtra("quoteStr", extrasInit.getString("quoteStr"));
+            Intent intent = new Intent(this, QuoteListActivity.class);
+            quote.setRating(rb_quote.getNumStars());
+            intent.putExtra("quote",quote);
             startActivity(intent);
-            return;
+            finish();
         }
 
         if (v == bt_quote_ok) {
-            extrasInit.clear();
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
+            finish();
         }
     }
 //    @Override
