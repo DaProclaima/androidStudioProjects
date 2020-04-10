@@ -1,5 +1,8 @@
 package fr.mds.geekquotes.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -34,8 +37,7 @@ public class Quote implements Serializable {
         return creatingDate;
     }
 
-    @Override
-    public String toString() {
-        return strQuote;
+    public void setCreatingDate(Date creatingDate) {
+        this.creatingDate = creatingDate;
     }
 }

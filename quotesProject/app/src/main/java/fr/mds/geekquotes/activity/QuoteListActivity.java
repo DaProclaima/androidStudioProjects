@@ -28,6 +28,7 @@ public class QuoteListActivity extends AppCompatActivity implements View.OnClick
     private ListView lv_main_quotes;
     private QuoteListAdapter quoteArrayAdapter;
     private Bundle extras;
+    private final int ACTIVITY_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,24 +72,32 @@ public class QuoteListActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        
+
         if( parent == lv_main_quotes) {
 
-           Quote quote = quotes.get(position);
+            Quote quote = quotes.get(position);
 
             Intent intent = new Intent(this, QuoteActivity.class);
-            intent.putExtra("quote", quote);
-            startActivity(intent);
+            intent.putExtra("position", position);
+            intent.putExtra("quote",(Serializable) quote);
+            startActivityForResult(intent, ACTIVITY_CODE);
         }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-       if(requestCode == 0 && resultCode == 1 && data != null) {
-            int position =  data.getIntExtra("position", 0);
-            float rating = data.getFloatExtra("rating", 00);
-            quotes.get(position).setRating((int) rating);
+        Log.d(TAG, "QuoteListActivity - onActivityResult");
+        Log.d(TAG, "QuoteListActivity - onActivityResult - requestCode = "+ requestCode);
+        Log.d(TAG, "QuoteListActivity - onActivityResult - resultCode = "+ resultCode);
+        Log.d(TAG, "QuoteListActivity - onActivityResult - data position = "+ data);
+
+       if(requestCode == 1 && resultCode == RESULT_OK) {
+           int position =  data.getIntExtra("position", 0);
+           float rating = data.getFloatExtra("rating", 0);
+           Log.d(TAG, "QuoteListActivity - bundle - rating = " + rating);
+           Log.d(TAG, "QuoteListActivity - bundle - position = " + position);
+           quotes.get(position).setRating((int) rating);
         }
     }
 }
