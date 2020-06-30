@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "applicationId": "fr.mds.geekquotes.activity",
+  "variantType": "BASE_APK",
+  "elements": [
+    {
+      "outputType": {
+        "type": "PROCESSED_RES"
+      },
+      "apkData": {
+        "type": "MAIN",
+        "splits": [],
+        "versionCode": 2,
+        "versionName": "1.2",
+        "outputFile": "app-debug.apk",
+        "fullName": "debug",
+        "baseName": "debug",
+        "dirName": ""
+      },
+      "path": "resources-debug.ap_",
+      "properties": {
+        "packageId": "fr.mds.geekquotes.activity",
+        "split": "",
+        "minSdkVersion": "21"
+      }
+    }
+  ]
+}
