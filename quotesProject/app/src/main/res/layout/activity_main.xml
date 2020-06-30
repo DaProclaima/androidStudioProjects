@@ -17,15 +17,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="@string/str_main_hint"
-            />
+            android:hint="@string/str_main_hint" />
 
         <Button
             android:id="@+id/bt_main_add"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/bt_main_title"
-            android:layout_weight="2"/>
+            android:layout_weight="2"
+            android:text="@string/bt_main_title" />
     </LinearLayout>
 
     <LinearLayout
@@ -39,14 +38,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:textSize="20sp"
-            android:text="@string/str_main_title" />
+            android:text="@string/str_main_title"
+            android:textSize="20sp" />
 
         <ListView
             android:id="@+id/lv_main_quotes"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
 

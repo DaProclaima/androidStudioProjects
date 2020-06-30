@@ -38,10 +38,15 @@ public class QuoteActivity extends Activity implements View.OnClickListener {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         if(bundle != null) {
-            position =  bundle.getInt("position");
-            Log.d(TAG, "QuoteActivity - bundle - position = " + position);
-            quote = (Quote) bundle.getSerializable("quote");
-            Log.d(TAG, "QuoteActivity - bundle - quote = " + quote);
+            try {
+                position =  bundle.getInt("position");
+                Log.d(TAG, "QuoteActivity - bundle - position = " + position);
+                quote = bundle.getParcelable("quote");
+                Log.d(TAG, "QuoteActivity - bundle - quote = " + quote);
+
+            } catch (Exception e) {
+                System.out.println( TAG +": Something went wrong bro. \n ");
+            }
             tv_quote_layout_quotedate.setText(quote.getCreatingDate().toString());
             tv_quote_layout_quotestr.setText(quote.getStrQuote());
             rb_quote.setRating(quote.getRating());
